@@ -121,7 +121,22 @@
     footer{padding:30px 24px;color:#fff;text-align:center;background:rgba(15,39,66,.85)}
 
     /* ===== Editor overlay ===== */
-    .edit-toggle{position:fixed;bottom:18px;right:18px;padding:10px 12px;border-radius:12px;background:var(--brand);color:#fff;border:0;cursor:pointer;box-shadow:var(--shadow);z-index:20;display:inline-flex;align-items:center;gap:8px}
+    .edit-toggle{
+      position:fixed;
+      bottom:18px;
+      right:18px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:var(--brand);
+      color:#fff;
+      border:0;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      z-index:20;
+      display:none; /* HIDDEN BY DEFAULT – only shown when ?edit=1 */
+      align-items:center;
+      gap:8px;
+    }
     .editor{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:30}
     .editor.open{display:flex}
     .editor .sheet{width:min(920px,95vw);max-height:90vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:var(--shadow);border:1px solid #e6ecf3}
@@ -182,7 +197,7 @@
               <p id="overview">Overview text here.</p>
               <ul id="overviewList"></ul>
             </div>
-            <div class="panel>
+            <div class="panel">
               <h4>Quick Facts</h4>
               <ul>
                 <li id="qGuests"></li>
@@ -206,7 +221,7 @@
       © <span id="year"></span> Solid Matter Travel & Tours · Johannesburg · Dubai · info@smtravel.co.za
     </footer>
 
-    <!-- ===== Editor toggle button (always visible) ===== -->
+    <!-- ===== Editor toggle button (only shown when ?edit=1) ===== -->
     <button class="edit-toggle" id="editToggle" type="button" aria-controls="editor" aria-expanded="false">✏️ Update</button>
 
     <!-- ===== Editor overlay ===== -->
@@ -301,41 +316,41 @@
   <script>
     // ======= SOURCE OF TRUTH =======
     const PROPERTY = {
-  "company": "Solid Matter Travel & Tours",
-  "logoUrl": "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1755934208/Logo1_Use_xuoqgm.png",
-  "name": "Duplex Villa in the heart of JBR",
-  "location": "Dubai",
-  "guestCount": 10,
-  "bedrooms": 4,
-  "bathrooms": 4.5,
-  "highlights": [
-    "Full sea view in prime JBR",
-    "4 luxe bedrooms, 3 ensuite",
-    "Spacious living for up to 15 guests",
-    "Beach, pool & gym access",
-    "Steps from JBR Walk & Marina"
-  ],
-  "images": [
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/1_x67eoq.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/2_jirf1a.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/6_zipxxg.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/5_cn7o25.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/7_hl5gtu.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/4_ibzc7l.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220204/8_owpza0.jpg",
-    "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/3_n3w6jz.jpg"
-  ],
-  "whatsapp": "+971 582003251",
-  "email": "info@smtravel.co.za",
-  "overview": "A stylish 4-bedroom villa in the heart of JBR with sweeping sea views, modern interiors, and instant access to the beach, dining, shopping, and Dubai Marina. Perfect for families, groups, and business travelers wanting comfort and convenience in one place.",
-  "overviewList": [
-    "Modern beach-inspired design",
-    "Fully equipped high-end kitchen",
-    "Premium king-bed bedrooms",
-    "Fast Wi-Fi & full amenities",
-    "Prime Rimal 5 location on JBR Walk"
-  ]
-};
+      "company": "Solid Matter Travel & Tours",
+      "logoUrl": "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1755934208/Logo1_Use_xuoqgm.png",
+      "name": "Duplex Villa in the heart of JBR",
+      "location": "Dubai",
+      "guestCount": 10,
+      "bedrooms": 4,
+      "bathrooms": 4.5,
+      "highlights": [
+        "Full sea view in prime JBR",
+        "4 luxe bedrooms, 3 ensuite",
+        "Spacious living for up to 15 guests",
+        "Beach, pool & gym access",
+        "Steps from JBR Walk & Marina"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/1_x67eoq.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/2_jirf1a.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/6_zipxxg.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/5_cn7o25.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/7_hl5gtu.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/4_ibzc7l.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220204/8_owpza0.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/3_n3w6jz.jpg"
+      ],
+      "whatsapp": "+971 582003251",
+      "email": "info@smtravel.co.za",
+      "overview": "A stylish 4-bedroom villa in the heart of JBR with sweeping sea views, modern interiors, and instant access to the beach, dining, shopping, and Dubai Marina. Perfect for families, groups, and business travelers wanting comfort and convenience in one place.",
+      "overviewList": [
+        "Modern beach-inspired design",
+        "Fully equipped high-end kitchen",
+        "Premium king-bed bedrooms",
+        "Fast Wi-Fi & full amenities",
+        "Prime Rimal 5 location on JBR Walk"
+      ]
+    };
 
     // ======= RENDER FROM CONFIG =======
     const el = (id)=>document.getElementById(id);
@@ -357,12 +372,20 @@
 
       const features = el('features');
       features.innerHTML = '';
-      (PROPERTY.highlights||[]).forEach(h=>{ const s=document.createElement('span'); s.textContent=h; features.appendChild(s); });
+      (PROPERTY.highlights||[]).forEach(h=>{
+        const s=document.createElement('span');
+        s.textContent=h;
+        features.appendChild(s);
+      });
 
       el('overview').textContent = PROPERTY.overview || '';
       const ol = el('overviewList');
       ol.innerHTML = '';
-      (PROPERTY.overviewList||[]).forEach(i=>{ const li=document.createElement('li'); li.textContent=i; ol.appendChild(li); });
+      (PROPERTY.overviewList||[]).forEach(i=>{
+        const li=document.createElement('li');
+        li.textContent=i;
+        ol.appendChild(li);
+      });
 
       const waText = encodeURIComponent(`Hi ${PROPERTY.company||'Solid Matter Travel'}, I’d like to enquire about ${PROPERTY.name||'the property'}. My dates are … and group size is …`);
       const waNum = (PROPERTY.whatsapp||'').replace(/[^0-9]/g,'');
@@ -387,7 +410,10 @@
     }
     prevBtn.addEventListener('click', ()=> setImage(idx-1));
     nextBtn.addEventListener('click', ()=> setImage(idx+1));
-    document.addEventListener('keydown', (e)=>{ if(e.key==='ArrowLeft') setImage(idx-1); if(e.key==='ArrowRight') setImage(idx+1); });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowLeft') setImage(idx-1);
+      if(e.key==='ArrowRight') setImage(idx+1);
+    });
 
     // ======= EDITOR =======
     const editBtn = el('editToggle');
@@ -398,7 +424,10 @@
     const formView = el('formView');
     const jsonView = el('jsonView');
 
-    function qs(name){ return new URLSearchParams(location.search).get(name); }
+    function qs(name){
+      return new URLSearchParams(location.search).get(name);
+    }
+
     function showEditor(){
       editor.classList.add('open');
       editor.setAttribute('aria-hidden','false');
@@ -411,12 +440,31 @@
       editor.setAttribute('aria-hidden','true');
       editBtn.setAttribute('aria-expanded','false');
     }
-    if(qs('edit')==='1'){ showEditor(); }
+
+    // Only show the button + auto-open when ?edit=1
+    const isEditMode = qs('edit') === '1';
+    if (isEditMode) {
+      editBtn.style.display = 'inline-flex';
+      showEditor();
+    } else {
+      editBtn.style.display = 'none';
+    }
+
     editBtn.addEventListener('click', showEditor);
     closeEditor.addEventListener('click', hideEditor);
 
-    tabForm.addEventListener('click', ()=>{ tabForm.classList.add('active'); tabJson.classList.remove('active'); formView.style.display='block'; jsonView.style.display='none'; });
-    tabJson.addEventListener('click', ()=>{ tabJson.classList.add('active'); tabForm.classList.remove('active'); jsonView.style.display='block'; formView.style.display='none'; });
+    tabForm.addEventListener('click', ()=>{
+      tabForm.classList.add('active');
+      tabJson.classList.remove('active');
+      formView.style.display='block';
+      jsonView.style.display='none';
+    });
+    tabJson.addEventListener('click', ()=>{
+      tabJson.classList.add('active');
+      tabForm.classList.remove('active');
+      jsonView.style.display='block';
+      formView.style.display='none';
+    });
 
     function fillForm(){
       el('f_company').value = PROPERTY.company||'';
@@ -433,9 +481,17 @@
       el('f_overview_list').value = (PROPERTY.overviewList||[]).join('\n');
     }
 
-    function clearMsgs(){ el('err').textContent=''; el('ok').textContent=''; el('jsonErr').textContent=''; }
-    function parseLines(text){ return (text||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean); }
-    function validateImages(arr){ return Array.isArray(arr) && arr.length >= 8; }
+    function clearMsgs(){
+      el('err').textContent='';
+      el('ok').textContent='';
+      el('jsonErr').textContent='';
+    }
+    function parseLines(text){
+      return (text||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+    }
+    function validateImages(arr){
+      return Array.isArray(arr) && arr.length >= 8;
+    }
 
     el('applyBtn').addEventListener('click', ()=>{
       clearMsgs();
@@ -460,7 +516,8 @@
       }
 
       Object.assign(PROPERTY, next);
-      render(); setImage(0);
+      render();
+      setImage(0);
       el('ok').textContent = 'Updated!';
     });
 
@@ -469,8 +526,11 @@
       const blob = new Blob([data], {type:'application/json'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = (PROPERTY.name||'property')+'.json';
-      document.body.appendChild(a); a.click(); a.remove();
+      a.href = url;
+      a.download = (PROPERTY.name||'property')+'.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
       URL.revokeObjectURL(url);
     });
 
@@ -480,10 +540,13 @@
         const obj = JSON.parse(el('jsonInput').value);
         if(!validateImages(obj.images)) throw new Error('JSON must include images array with at least 8 URLs.');
         Object.assign(PROPERTY, obj);
-        render(); setImage(0);
+        render();
+        setImage(0);
         tabForm.click();
         el('ok').textContent = 'Updated from JSON!';
-      }catch(e){ el('jsonErr').textContent = e.message; }
+      }catch(e){
+        el('jsonErr').textContent = e.message;
+      }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
