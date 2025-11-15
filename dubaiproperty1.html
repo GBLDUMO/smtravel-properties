@@ -60,30 +60,6 @@
       pointer-events:none;          /* clicks pass through */
     }
 
-    /* Mobile header layout fix */
-    @media (max-width: 640px){
-      .header-inner{
-        justify-content:center;
-        padding:12px 16px;
-      }
-      .brand{
-        flex-direction:column;
-        align-items:center;
-      }
-      .logo img{
-        width:90px;
-      }
-      .brand h1{
-        position:static;
-        transform:none;
-        margin-top:8px;
-        font-size:22px;
-        white-space:normal;
-        text-align:center;
-        pointer-events:auto;
-      }
-    }
-
     /* HERO is inside the same .wrap as the card -> exact width match */
     .hero{
       margin:0;
@@ -181,6 +157,70 @@
     .tab.active{background:#eef6f7;border-color:var(--ring)}
     .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .row .spacer{flex:1}
+
+    /* === Mobile layout tuning (header + layout + buttons) === */
+    @media (max-width: 640px){
+      .header-inner{
+        justify-content:center;
+        padding:12px 16px;
+      }
+      .brand{
+        flex-direction:column;
+        align-items:center;
+      }
+      .logo img{
+        width:90px;
+      }
+      .brand h1{
+        position:static;
+        transform:none;
+        margin-top:8px;
+        font-size:22px;
+        white-space:normal;
+        text-align:center;
+        pointer-events:auto;
+      }
+
+      .wrap{
+        padding:12px 12px;
+      }
+
+      .hero{
+        padding:18px 16px 6px;
+      }
+      .hero h2{
+        font-size:20px;
+      }
+      .hero p{
+        font-size:13px;
+      }
+      .hero .property-label{
+        font-size:11px;
+        letter-spacing:0.8px;
+      }
+
+      .carousel{
+        height:55vh;
+      }
+      .carousel img{
+        height:55vh;
+      }
+
+      .body{
+        padding:14px 14px 10px 14px;
+      }
+      .title h3{
+        font-size:18px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+      .actions .btn{
+        width:100%;
+        text-align:center;
+      }
+    }
   </style>
 </head>
 <body>
