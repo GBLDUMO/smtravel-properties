@@ -45,19 +45,19 @@
     .brand{display:flex;align-items:center;gap:12px;justify-content:flex-start;width:100%;position:relative}
     .logo{flex:0 0 auto}
     .logo img{width:120px;height:auto;object-fit:contain}
-    /* Center the title perfectly within the wrap, regardless of the logo width (desktop) */
+    /* Desktop title */
     .brand h1{
       position:absolute;
       left:50%;
       transform:translateX(-50%);
       margin:0;
-      font-size:32px;               /* bigger title */
-      font-weight:800;              /* bold */
-      color:#ffffff;                /* white */
+      font-size:32px;
+      font-weight:800;
+      color:#ffffff;
       letter-spacing:.5px;
       text-shadow:0 1px 2px rgba(0,0,0,.35);
       white-space:nowrap;
-      pointer-events:none;          /* clicks pass through */
+      pointer-events:none;
     }
 
     /* HERO is inside the same .wrap as the card -> exact width match */
@@ -77,6 +77,16 @@
     .hero .property-label{
       display:block;margin-bottom:8px;font-size:14px;letter-spacing:1px;
       text-transform:uppercase;color:#a8c5e5;font-weight:600
+    }
+
+    /* Company name visible only on mobile, inside hero */
+    .company-mobile{
+      display:none;
+      margin:0 0 4px;
+      font-size:14px;
+      font-weight:600;
+      color:#e5e7eb;
+      letter-spacing:.4px;
     }
 
     /* CARD kisses hero (no seam) */
@@ -171,14 +181,14 @@
       .logo img{
         width:90px;
       }
+      /* Hide desktop header title on mobile */
       .brand h1{
-        position:static;
-        transform:none;
-        margin-top:8px;
-        font-size:22px;
-        white-space:normal;
-        text-align:center;
-        pointer-events:auto;
+        display:none;
+      }
+
+      /* Show company name inside hero on mobile */
+      .company-mobile{
+        display:block;
       }
 
       .wrap{
@@ -239,6 +249,7 @@
     <main class="wrap">
       <!-- HERO inside .wrap so width matches card exactly -->
       <section class="hero">
+        <p class="company-mobile" id="companyMobile"></p>
         <span class="property-label">Property</span>
         <h2 id="propName">Property Name</h2>
         <p id="propMeta">Guests · Bedrooms · Bathrooms</p>
@@ -419,7 +430,9 @@
     // ======= RENDER FROM CONFIG =======
     const el = (id)=>document.getElementById(id);
     function render(){
-      el('company').textContent = PROPERTY.company || 'Solid Matter Travel & Tours';
+      const companyName = PROPERTY.company || 'Solid Matter Travel & Tours';
+      el('company').textContent = companyName;
+      el('companyMobile').textContent = companyName;
       el('logo').src = PROPERTY.logoUrl || '';
       el('propName').textContent = `${PROPERTY.name || ''}${PROPERTY.location ? ', ' + PROPERTY.location : ''}`;
       const meta = [
@@ -451,7 +464,7 @@
         ol.appendChild(li);
       });
 
-      const waText = encodeURIComponent(`Hi ${PROPERTY.company||'Solid Matter Travel'}, I’d like to enquire about ${PROPERTY.name||'the property'}. My dates are … and group size is …`);
+      const waText = encodeURIComponent(`Hi ${companyName}, I’d like to enquire about ${PROPERTY.name||'the property'}. My dates are … and group size is …`);
       const waNum = (PROPERTY.whatsapp||'').replace(/[^0-9]/g,'');
       el('whatsappCta').href = waNum? `https://wa.me/${waNum}?text=${waText}` : '#';
       el('emailCta').href = `mailto:${PROPERTY.email}?subject=${encodeURIComponent((PROPERTY.name||'Property')+' Enquiry')}`;
