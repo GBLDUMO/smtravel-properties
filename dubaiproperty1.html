@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solid Matter Travel · Property</title>
+  <meta name="description" content="Solid Matter Travel & Tours – Holiday rental showcase." />
+  <style>
+    :root{
+      --brand:#0f2742;
+      --accent:#22a6b3;
+      --ink:#1a1a1a;
+      --muted:#6b7280;
+      --bg:rgba(247,248,251,.6);
+      --card:#ffffff;
+      --ring:rgba(34,166,179,.25);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --danger:#dc2626;
+      --success:#16a34a;
+      --bg-img:url('https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763223639/Dubai_Background_qf9dkk.png');
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:var(--ink)}
+    body{
+      background:var(--bg-img) center/cover no-repeat fixed;
+      min-height:100dvh;
+    }
+    @supports (-webkit-touch-callout:none){body{background-attachment:scroll}}
+    .page-bg{background:var(--bg);min-height:100dvh}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:1100px;margin:auto;padding:24px 20px 40px}
+
+    /* Header - Logo Removed */
+    header{position:relative;z-index:1000}
+    .header-inner{display:flex;align-items:center;justify-content:center;padding:20px 20px}
+    .brand{position:relative;width:100%;text-align:center}
+    .brand h1{
+      margin:0;font-size:clamp(28px,5vw,36px);font-weight:800;color:#fff;
+      letter-spacing:.6px;text-shadow:0 2px 6px rgba(0,0,0,.5);white-space:nowrap
+    }
+
+    /* Hero */
+    .hero{
+      margin:0 auto;max-width:1100px;padding:36px 24px 14px;
+      background:rgba(15,39,66,.88);color:#fff;text-align:center;
+      border-top-left-radius:var(--radius);border-top-right-radius:var(--radius);
+    }
+    .hero .property-label{display:block;margin-bottom:10px;font-size:14px;letter-spacing:1.6px;text-transform:uppercase;color:#a0d0e0;font-weight:600}
+    .hero h2{margin:0;font-size:clamp(26px,7vw,36px);font-weight:800;line-height:1.2}
+    .hero p{margin:12px 0 0;color:#e2e8f0;font-size:16px}
+    .company-mobile{display:none;font-weight:600;color:#e5e7eb;margin-bottom:10px;font-size:15px}
+
+    /* Card & Carousel */
+    .card{
+      max-width:1100px;margin:0 auto;background:var(--card);
+      border-radius:var(--radius);border-top-left-radius:0;border-top-right-radius:0;
+      box-shadow:var(--shadow);overflow:hidden;border:1px solid #eef2f7
+    }
+    .carousel{position:relative;height:65vh;min-height:380px;max-height:720px;background:#000}
+    .carousel img{width:100%;height:100%;object-fit:cover;display:block}
+    .nav-btn{
+      position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);
+      border:none;color:#fff;width:52px;height:52px;border-radius:50%;
+      cursor:pointer;font-size:28px;z-index:10;transition:.2s
+    }
+    .nav-btn:hover{background:rgba(0,0,0,.8)}
+    .prev{left:16px}.next{right:16px}
+    .badge{
+      position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.96);
+      padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:600;
+      box-shadow:0 4px 14px rgba(0,0,0,.18)
+    }
+
+    /* Content */
+    .body{padding:28px 24px}
+    .features{display:flex;flex-wrap:wrap;gap:11px;margin:22px 0}
+    .features span{font-size:13px;background:#f0f8fb;border:1px solid #cfe8f2;padding:9px 15px;border-radius:999px}
+    .two-col{display:grid;grid-template-columns:1fr;gap:26px;margin-top:10px}
+    .panel{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:20px}
+    .panel h4{margin:0 0 12px;font-size:19px;color:var(--brand);font-weight:600}
+    .panel p{margin:0 0 14px;color:var(--muted);line-height:1.65}
+    ul{margin:14px 0 0 24px;line-height:1.7;color:var(--ink)}
+
+    /* Buttons */
+    .actions{display:flex;flex-direction:column;gap:16px;margin-top:36px;max-width:420px;margin-left:auto;margin-right:auto}
+    .btn{display:block;padding:16px 20px;border-radius:12px;text-align:center;font-weight:600;font-size:17px;transition:transform .2s,box-shadow .2s}
+    .btn.primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(34,166,179,.3)}
+
+    footer{padding:40px 20px;color:#fff;text-align:center;background:rgba(15,39,66,.92);font-size:14.5px}
+
+    /* Editor */
+    .edit-toggle{
+      position:fixed;bottom:22px;right:22px;padding:13px 17px;border-radius:14px;
+      background:var(--brand);color:#fff;border:0;cursor:pointer;
+      box-shadow:var(--shadow);z-index:20;display:none;align-items:center;gap:9px;font-weight:600
+    }
+    .editor{position:fixed;inset:0;background:rgba(0,0,0,.52);display:none;align-items:center;justify-content:center;padding:20px;z-index:30}
+    .editor.open{display:flex}
+    .editor .sheet{width:min(960px,96vw);max-height:93vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 60px rgba(0,0,0,.3);border:1px solid #e3e8f3}
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (min-width: 768px){
+      .two-col{grid-template-columns:1.55fr 1fr}
+      .actions{flex-direction:row;justify-content:center}
+      .btn{flex:1;max-width:320px}
+    }
+    @media (max-width: 767px){
+      .wrap{padding:12px 12px 30px}
+      .header-inner{padding:12px 16px}
+      .brand h1{display:none}
+      .company-mobile{display:block}
+      .hero{padding:26px 18px 14px;border-radius:0}
+      .card{border-radius:0;box-shadow:none;border:none}
+      .carousel{height:58vh}
+      .body{padding:20px 18px}
+      .actions .btn{font-size:17.5px}
+      footer{padding:32px 18px}
+    }
+    @media (max-width: 480px){
+      .hero h2{font-size:24px}
+      .hero p{font-size:14.5px}
+      .nav-btn{width:46px;height:46px;font-size:24px}
+      .prev{left:12px}.next{right:12px}
+      .badge{font-size:12.5px;padding:7px 11px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg">
+    <header>
+      <div class="header-inner wrap">
+        <div class="brand">
+          <h1 id="company">Solid Matter Travel & Tours</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <p class="company-mobile" id="companyMobile"></p>
+        <span class="property-label">Property</span>
+        <h2 id="propName">Property Name</h2>
+        <p id="propMeta">Guests · Bedrooms · Bathrooms</p>
+      </section>
+
+      <article class="card">
+        <div class="carousel">
+          <img id="hero" src="" alt="Property" />
+          <button class="nav-btn prev" id="prev">‹</button>
+          <button class="nav-btn next" id="next">›</button>
+          <div class="badge" id="badge"></div>
+        </div>
+
+        <div class="body">
+          <h3 style="margin-top:0;font-size:23px;font-weight:700">Highlights</h3>
+          <div class="features" id="features"></div>
+
+          <div class="two-col">
+            <div class="panel">
+              <h4>Overview</h4>
+              <p id="overview"></p>
+              <ul id="overviewList"></ul>
+            </div>
+            <div class="panel">
+              <h4>Quick Facts</h4>
+              <ul>
+                <li id="qGuests"></li>
+                <li id="qBeds"></li>
+                <li id="qBaths"></li>
+                <li>Wi-Fi, Smart TV</li>
+                <li>Communal pool access</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" id="whatsappCta" target="_blank" rel="noopener">Message us on WhatsApp</a>
+            <a class="btn" id="emailCta" href="#">Email: info@smtravel.co.za</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Solid Matter Travel & Tours · Johannesburg · Dubai · info@smtravel.co.za
+    </footer>
+
+    <button class="edit-toggle" id="editToggle" type="button">✏️ Update</button>
+
+    <div class="editor" id="editor" aria-hidden="true">
+      <div class="sheet">
+        <header>
+          <h3>Update Property</h3>
+          <button class="close" id="closeEditor" type="button">Close</button>
+        </header>
+        <div class="body">
+          <div class="tabs">
+            <button class="tab active" id="tabForm" type="button">Form</button>
+            <button class="tab" id="tabJson" type="button">Paste JSON</button>
+          </div>
+
+          <div id="formView">
+            <div class="grid">
+              <div><label>Company Name</label><input id="f_company" type="text" /></div>
+              <div><label>Logo URL</label><input id="f_logo" type="url" /></div>
+              <div><label>Property Name</label><input id="f_name" type="text" required /></div>
+              <div><label>Location</label><input id="f_location" type="text" placeholder="e.g., Camps Bay, Cape Town" /></div>
+              <div><label>Guests</label><input id="f_guests" type="number" min="1" /></div>
+              <div><label>Bedrooms</label><input id="f_beds" type="number" min="1" /></div>
+              <div><label>Bathrooms</label><input id="f_baths" type="number" min="1" /></div>
+              <div><label>WhatsApp Number</label><input id="f_whatsapp" type="text" placeholder="+971 582003251" /></div>
+              <div><label>Highlights (one per line)</label><textarea id="f_highlights" placeholder="Sea & mountain views&#10;Backup power"></textarea></div>
+              <div>
+                <label>Images (≥ 8 URLs, one per line)</label>
+                <textarea id="f_images" placeholder="https://.../1.jpg&#10;https://.../2.jpg"></textarea>
+                <div class="hint">Tip: First URL becomes the hero image.</div>
+              </div>
+              <div><label>Overview (short paragraph)</label><textarea id="f_overview"></textarea></div>
+              <div><label>Overview bullets (optional)</label><textarea id="f_overview_list"></textarea></div>
+            </div>
+            <div class="row">
+              <span id="err" class="error"></span>
+              <span id="ok" class="success"></span>
+              <span class="spacer"></span>
+              <button class="tab" id="applyBtn">Apply</button>
+              <button class="tab" id="exportBtn">Save JSON</button>
+            </div>
+          </div>
+
+          <div id="jsonView" style="display:none">
+            <label>Paste full PROPERTY JSON</label>
+            <textarea id="jsonInput" style="width:100%;min-height:260px"></textarea>
+            <div class="row">
+              <span id="jsonErr" class="error"></span>
+              <span class="spacer"></span>
+              <button class="tab" id="applyJson">Apply JSON</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ======= SOURCE OF TRUTH (logoUrl still exists in editor but won't be used) =======
+    const PROPERTY = {
+      "company": "Solid Matter Travel & Tours",
+      "logoUrl": "", // kept for editor compatibility, but not used anymore
+      "name": "Duplex Villa in the heart of JBR",
+      "location": "Dubai",
+      "guestCount": 10,
+      "bedrooms": 4,
+      "bathrooms": 4.5,
+      "highlights": [
+        "Full sea view in prime JBR",
+        "4 luxe bedrooms, 3 ensuite",
+        "Spacious living for up to 15 guests",
+        "Beach, pool & gym access",
+        "Steps from JBR Walk & Marina"
+      ],
+      "images": [
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/1_x67eoq.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/2_jirf1a.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/6_zipxxg.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/5_cn7o25.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/7_hl5gtu.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220202/4_ibzc7l.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220204/8_owpza0.jpg",
+        "https://res.cloudinary.com/dmrvd8fwt/image/upload/v1763220203/3_n3w6jz.jpg"
+      ],
+      "whatsapp": "+971 582003251",
+      "email": "info@smtravel.co.za",
+      "overview": "A stylish 4-bedroom villa in the heart of JBR with sweeping sea views, modern interiors, and instant access to the beach, dining, shopping, and Dubai Marina. Perfect for families, groups, and business travelers wanting comfort and convenience in one place.",
+      "overviewList": [
+        "Modern beach-inspired design",
+        "Fully equipped high-end kitchen",
+        "Premium king-bed bedrooms",
+        "Fast Wi-Fi & full amenities",
+        "Prime Rimal 5 location on JBR Walk"
+      ]
+    };
+
+    const el = (id) => document.getElementById(id);
+    function render(){
+      const companyName = PROPERTY.company || 'Solid Matter Travel & Tours';
+      el('company').textContent = companyName;
+      el('companyMobile').textContent = companyName;
+      // Logo removed — no code here anymore
+      el('propName').textContent = `${PROPERTY.name || ''}${PROPERTY.location ? ', ' + PROPERTY.location : ''}`;
+      const meta = [
+        PROPERTY.guestCount ? `${PROPERTY.guestCount} guests` : null,
+        PROPERTY.bedrooms ? `${PROPERTY.bedrooms} bedrooms` : null,
+        PROPERTY.bathrooms ? `${PROPERTY.bathrooms} bathrooms` : null,
+      ].filter(Boolean).join(' · ');
+      el('propMeta').textContent = meta;
+      if(Array.isArray(PROPERTY.images) && PROPERTY.images.length){
+        el('hero').src = PROPERTY.images[0];
+      }
+      el('badge').textContent = meta.replace('bedrooms','bd').replace('bathrooms','ba');
+      const features = el('features'); features.innerHTML = '';
+      (PROPERTY.highlights||[]).forEach(h=>{ const s=document.createElement('span'); s.textContent=h; features.appendChild(s); });
+      el('overview').textContent = PROPERTY.overview || '';
+      const ol = el('overviewList'); ol.innerHTML = '';
+      (PROPERTY.overviewList||[]).forEach(i=>{ const li=document.createElement('li'); li.textContent=i; ol.appendChild(li); });
+      const waText = encodeURIComponent(`Hi ${companyName}, I’d like to enquire about ${PROPERTY.name||'the property'}. My dates are … and group size is …`);
+      const waNum = (PROPERTY.whatsapp||'').replace(/[^0-9]/g,'');
+      el('whatsappCta').href = waNum ? `https://wa.me/${waNum}?text=${waText}` : '#';
+      el('emailCta').href = `mailto:${PROPERTY.email}?subject=${encodeURIComponent((PROPERTY.name||'Property')+' Enquiry')}`;
+      el('qGuests').textContent = `Guests: ${PROPERTY.guestCount}`;
+      el('qBeds').textContent = `Bedrooms: ${PROPERTY.bedrooms}`;
+      el('qBaths').textContent = `Bathrooms: ${PROPERTY.bathrooms}`;
+    }
+
+    const heroImg = el('hero');
+    let idx = 0;
+    function setImage(i){
+      const imgs = PROPERTY.images||[];
+      if(!imgs.length) return;
+      idx = (i + imgs.length) % imgs.length;
+      heroImg.src = imgs[idx];
+    }
+    el('prev').addEventListener('click', ()=> setImage(idx-1));
+    el('next').addEventListener('click', ()=> setImage(idx+1));
+    document.addEventListener('keydown', e=>{
+      if(e.key==='ArrowLeft') setImage(idx-1);
+      if(e.key==='ArrowRight') setImage(idx+1);
+    });
+
+    // Editor remains fully functional (logo field still there if you ever want it back)
+    const editBtn = el('editToggle');
+    const editor = el('editor');
+    const closeEditor = el('closeEditor');
+    const tabForm = el('tabForm');
+    const tabJson = el('tabJson');
+    const formView = el('formView');
+    const jsonView = el('jsonView');
+
+    function qs(name){ return new URLSearchParams(location.search).get(name); }
+    function showEditor(){
+      editor.classList.add('open');
+      editor.setAttribute('aria-hidden','false');
+      editBtn.setAttribute('aria-expanded','true');
+      fillForm();
+      clearMsgs();
+    }
+    function hideEditor(){
+      editor.classList.remove('open');
+      editor.setAttribute('aria-hidden','true');
+      editBtn.setAttribute('aria-expanded','false');
+    }
+
+    const isEditMode = qs('edit') === '1';
+    if (isEditMode) {
+      editBtn.style.display = 'inline-flex';
+      showEditor();
+    } else {
+      editBtn.style.display = 'none';
+    }
+
+    editBtn.addEventListener('click', showEditor);
+    closeEditor.addEventListener('click', hideEditor);
+    tabForm.addEventListener('click', ()=>{ tabForm.classList.add('active'); tabJson.classList.remove('active'); formView.style.display='block'; jsonView.style.display='none'; });
+    tabJson.addEventListener('click', ()=>{ tabJson.classList.add('active'); tabForm.classList.remove('active'); jsonView.style.display='block'; formView.style.display='none'; });
+
+    function fillForm(){
+      el('f_company').value = PROPERTY.company||'';
+      el('f_logo').value = PROPERTY.logoUrl||'';
+      el('f_name').value = PROPERTY.name||'';
+      el('f_location').value = PROPERTY.location||'';
+      el('f_guests').value = PROPERTY.guestCount||'';
+      el('f_beds').value = PROPERTY.bedrooms||'';
+      el('f_baths').value = PROPERTY.bathrooms||'';
+      el('f_whatsapp').value = PROPERTY.whatsapp||'';
+      el('f_highlights').value = (PROPERTY.highlights||[]).join('\n');
+      el('f_images').value = (PROPERTY.images||[]).join('\n');
+      el('f_overview').value = PROPERTY.overview||'';
+      el('f_overview_list').value = (PROPERTY.overviewList||[]).join('\n');
+    }
+
+    function clearMsgs(){
+      el('err').textContent=''; el('ok').textContent=''; el('jsonErr').textContent='';
+    }
+
+    function parseLines(text){
+      return (text||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+    }
+
+    function validateImages(arr){
+      return Array.isArray(arr) && arr.length >= 8;
+    }
+
+    el('applyBtn').addEventListener('click', ()=>{
+      clearMsgs();
+      const next = {
+        company: el('f_company').value.trim() || PROPERTY.company,
+        logoUrl: el('f_logo').value.trim() || PROPERTY.logoUrl,
+        name: el('f_name').value.trim() || PROPERTY.name,
+        location: el('f_location').value.trim(),
+        guestCount: Number(el('f_guests').value)|| PROPERTY.guestCount,
+        bedrooms: Number(el('f_beds').value) || PROPERTY.bedrooms,
+        bathrooms: Number(el('f_baths').value) || PROPERTY.bathrooms,
+        whatsapp: el('f_whatsapp').value.trim()|| PROPERTY.whatsapp,
+        highlights: parseLines(el('f_highlights').value),
+        images: parseLines(el('f_images').value),
+        overview: el('f_overview').value.trim(),
+        overviewList: parseLines(el('f_overview_list').value)
+      };
+      if(!validateImages(next.images)){
+        el('err').textContent = 'Please add at least 8 image URLs (one per line).';
+        return;
+      }
+      Object.assign(PROPERTY, next);
+      render();
+      setImage(0);
+      el('ok').textContent = 'Updated!';
+    });
+
+    el('exportBtn').addEventListener('click', ()=>{
+      const data = JSON.stringify(PROPERTY, null, 2);
+      const blob = new Blob([data], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (PROPERTY.name||'property')+'.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    el('applyJson').addEventListener('click', ()=>{
+      clearMsgs();
+      try{
+        const obj = JSON.parse(el('jsonInput').value);
+        if(!validateImages(obj.images)) throw new Error('JSON must include images array with at least 8 URLs.');
+        Object.assign(PROPERTY, obj);
+        render();
+        setImage(0);
+        tabForm.click();
+        el('ok').textContent = 'Updated from JSON!';
+      }catch(e){
+        el('jsonErr').textContent = e.message;
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    render();
+  </script>
+</body>
+</html>
