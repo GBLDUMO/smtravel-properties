@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solid Matter Travel — Quote for Villa Sevara | Camps Bay, 12–16 Feb 2027</title>
+<style>
+  :root{--navy:#0d1b2a;--navy2:#13263b;--gold:#c9a14a;--gold-soft:#e7d3a1;--ink:#1c2733;--muted:#6a7686;--line:#e6e8ec;--bg:#f4f5f7;--white:#ffffff;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;background:var(--white);box-shadow:0 4px 30px rgba(13,27,42,.08)}
+  .top{background:var(--navy);color:#fff;padding:30px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-bottom:3px solid var(--gold)}
+  .brand{font-size:22px;font-weight:700;letter-spacing:.5px}
+  .brand span{color:var(--gold)}
+  .brand .tag{display:block;font-size:11px;font-weight:400;letter-spacing:2.5px;color:var(--gold-soft);text-transform:uppercase;margin-top:4px}
+  .contact{font-size:12.5px;text-align:right;color:#cdd5df;line-height:1.7}
+  .contact b{color:#fff}
+  .hero{position:relative}
+  .hero img{width:100%;height:340px;object-fit:cover;display:block;cursor:zoom-in}
+  .hero-cap{position:absolute;left:0;bottom:0;right:0;padding:50px 44px 22px;background:linear-gradient(to top,rgba(13,27,42,.92),rgba(13,27,42,0));color:#fff}
+  .hero-cap .pill{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:3px;margin-bottom:10px}
+  .hero-cap h1{font-size:27px;font-weight:700;line-height:1.25}
+  .hero-cap .loc{font-size:14px;color:var(--gold-soft);margin-top:4px}
+  .body{padding:34px 44px}
+  .greet{font-size:15.5px;margin-bottom:8px}
+  .greet b{color:var(--navy)}
+  .lead{color:var(--muted);font-size:14.5px;margin-bottom:28px}
+  .sec-title{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:8px;margin:28px 0 16px}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .fact{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center}
+  .fact .n{font-size:20px;font-weight:700;color:var(--navy)}
+  .fact .l{font-size:11px;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin-top:2px}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .gallery img{width:100%;height:115px;object-fit:cover;border-radius:6px;display:block;cursor:zoom-in;transition:transform .25s,box-shadow .25s}
+  .gallery img:hover{transform:scale(1.03);box-shadow:0 6px 18px rgba(13,27,42,.25)}
+  .gallery-hint{font-size:12px;color:var(--muted);margin:10px 0 0;text-align:center}
+  .lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(9,20,32,.94);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:90vw;max-height:82vh;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.5)}
+  .lb-close{position:absolute;top:18px;right:24px;color:#fff;font-size:34px;font-weight:300;cursor:pointer;line-height:1;background:none;border:none}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:30px;cursor:pointer;background:rgba(255,255,255,.12);border:none;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .lb-nav:hover{background:var(--gold);color:var(--navy)}
+  .lb-prev{left:24px}.lb-next{right:24px}
+  .lb-count{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:#cdd5df;font-size:13px;letter-spacing:1px}
+  @media(max-width:620px){.lb-nav{width:42px;height:42px;font-size:24px}.lb-prev{left:10px}.lb-next{right:10px}}
+  .desc{font-size:14.5px;color:#39444f;margin-bottom:16px}
+  .amen{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;font-size:14px}
+  .amen div{padding-left:22px;position:relative;color:#39444f}
+  .amen div::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+  .price-box{background:var(--navy);border-radius:12px;padding:28px 30px;color:#fff;margin-top:6px}
+  .price-row{display:flex;justify-content:space-between;padding:9px 0;font-size:14.5px;color:#cdd5df;border-bottom:1px solid rgba(255,255,255,.08)}
+  .price-row span:last-child{color:#fff;font-weight:600}
+  .price-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:16px;border-top:2px solid var(--gold)}
+  .price-total .lbl{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-soft)}
+  .price-total .amt{font-size:34px;font-weight:700;color:var(--gold)}
+  .price-note{font-size:12px;color:#9aa6b3;margin-top:10px}
+  .terms{font-size:13px;color:var(--muted);line-height:1.8}
+  .terms b{color:var(--ink)}
+  .cta{background:linear-gradient(135deg,var(--navy),var(--navy2));text-align:center;padding:34px 44px;color:#fff}
+  .cta h3{font-size:19px;font-weight:700;margin-bottom:6px}
+  .cta p{color:#cdd5df;font-size:14px;margin-bottom:18px}
+  .btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:14.5px;letter-spacing:.5px;text-decoration:none;padding:13px 30px;border-radius:6px}
+  .btn.alt{background:transparent;border:1px solid var(--gold);color:var(--gold);margin-left:10px}
+  .foot{background:#091420;color:#8794a3;text-align:center;padding:22px;font-size:12px;line-height:1.8}
+  .foot b{color:#cdd5df}
+  .foot .accred{color:var(--gold-soft)}
+  @media(max-width:620px){.top,.body,.hero-cap,.cta{padding-left:22px;padding-right:22px}.facts,.amen{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:120px}.contact{text-align:left}.hero img{height:260px}.btn.alt{margin-left:0;margin-top:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">SOLID MATTER <span>TRAVEL</span><span class="tag" style="color:var(--gold-soft)">Africa Travel, Handled Properly</span></div>
+    <div class="contact"><b>Kevin</b> · Solid Matter Travel<br>Dumisani@smtravel.co.za<br>+971 58 200 3251 · WhatsApp</div>
+  </div>
+  <div class="hero">
+    <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1668844799653695707/original/316eeb25-3ff2-4941-bd80-e88f5cafab20.jpeg?im_w=1200" alt="Villa Sevara, Camps Bay" data-idx="0">
+    <div class="hero-cap">
+      <span class="pill">Private Villa Quote</span>
+      <h1>Villa Sevara · Ocean-View Retreat with Pool</h1>
+      <div class="loc">Camps Bay, Cape Town · South Africa</div>
+    </div>
+  </div>
+  <div class="body">
+    <p class="greet">Prepared for your group's <b>Camps Bay</b> stay</p>
+    <p class="lead">Thank you for your enquiry. Please find below your curated quote for an exclusive 4-night stay at Villa Sevara — a private six-bedroom retreat set above Camps Bay Beach with sweeping sea and mountain views, a pool and bar, sleeping your full party of 12 in comfort. Everything has been arranged and verified by our team.</p>
+
+    <div class="sec-title">Your Stay at a Glance</div>
+    <div class="facts">
+      <div class="fact"><div class="n">12</div><div class="l">Guests</div></div>
+      <div class="fact"><div class="n">6</div><div class="l">Bedrooms</div></div>
+      <div class="fact"><div class="n">5</div><div class="l">Bathrooms</div></div>
+      <div class="fact"><div class="n">4</div><div class="l">Nights</div></div>
+    </div>
+
+    <div class="sec-title">Dates</div>
+    <div class="facts" style="grid-template-columns:repeat(2,1fr)">
+      <div class="fact"><div class="n">12 Feb 2027</div><div class="l">Check-in · from 2:00 PM</div></div>
+      <div class="fact"><div class="n">16 Feb 2027</div><div class="l">Check-out · by 10:00 AM</div></div>
+    </div>
+
+    <div class="sec-title">The Property — Gallery</div>
+    <div class="gallery" id="gallery"></div>
+    <p class="gallery-hint">Click any photo to enlarge · use ‹ › to browse all 50 images</p>
+    <p class="desc" style="margin-top:16px">Villa Sevara is an exceptional six-bedroom retreat set above Camps Bay Beach, moments from the promenade and roughly a 15-minute drive from the Table Mountain Cableway. The main suite offers a king bed, wood fireplace and private balcony; living and dining areas open onto a sea-facing balcony with a bar and wine fridge, flowing to a pool terrace with loungers, gas &amp; wood BBQs and dining for ten. Every bedroom is air-conditioned, with load-shedding backup power and housekeeping Monday to Saturday.</p>
+    <div class="amen">
+      <div>Private pool &amp; sun terrace</div>
+      <div>Sea &amp; mountain views</div>
+      <div>Bar with wine fridge</div>
+      <div>Air-conditioning throughout</div>
+      <div>Gas &amp; wood BBQ + outdoor dining</div>
+      <div>Wood fireplace in main suite</div>
+      <div>Double garage + driveway parking</div>
+      <div>Housekeeping (Mon–Sat)</div>
+      <div>Load-shedding backup power</div>
+      <div>Alarm &amp; exterior CCTV</div>
+    </div>
+
+    <div class="sec-title">Your Quote</div>
+    <div class="price-box">
+      <div class="price-row"><span>Private villa · 4 nights (12–16 Feb 2027)</span><span>AED 7,425 / night</span></div>
+      <div class="price-row"><span>Sleeps 12 · 6 bedrooms · fully serviced</span><span>Included</span></div>
+      <div class="price-row"><span>Booking coordination &amp; on-trip support</span><span>Included</span></div>
+      <div class="price-total"><span class="lbl">Total — All Inclusive</span><span class="amt">AED 29,700</span></div>
+      <p class="price-note">Quoted for the full party of 12 for the complete 4-night stay. A refundable security deposit (or damage waiver) is arranged separately via the property's verification platform ahead of check-in.</p>
+    </div>
+
+    <div class="sec-title">To Secure Your Booking</div>
+    <p class="terms">
+      <b>Deposit:</b> 50% (AED 14,850) confirms and holds the villa for your dates.<br>
+      <b>Balance:</b> Due no later than 30 days before arrival.<br>
+      <b>Security deposit:</b> Refundable breakage deposit or non-refundable damage waiver, processed via the property's guest-verification platform before check-in.<br>
+      <b>Validity:</b> This quote is held for 7 days, subject to availability at the time of confirmation.
+    </p>
+  </div>
+
+  <div class="cta">
+    <h3>Ready to confirm?</h3>
+    <p>Reply to this quote or message us directly and we'll lock in your dates today.</p>
+    <a class="btn" href="https://wa.me/971582003251?text=Hi%20Kevin%2C%20I'd%20like%20to%20confirm%20the%20Villa%20Sevara%20quote%20(12%E2%80%9316%20Feb%202027)">Confirm on WhatsApp</a>
+    <a class="btn alt" href="mailto:Dumisani@smtravel.co.za?subject=Villa%20Sevara%20Booking%20%E2%80%94%2012%E2%80%9316%20Feb%202027">Email Us</a>
+  </div>
+
+  <div class="foot">
+    <b>Solid Matter Travel</b> — Africa-specialist travel management<br>
+    Flights · Accommodation · Transfers · MICE &nbsp;|&nbsp; South Africa &amp; UAE<br>
+    <span class="accred">IATA Accredited · 96095963</span><br>
+    Dumisani@smtravel.co.za · +971 58 200 3251
+  </div>
+</div>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="Villa photo">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+(function(){
+  var ids=["316eeb25-3ff2-4941-bd80-e88f5cafab20","1d9eaf2a-56f5-454e-8593-db55185180d0","0e7483bc-e06e-479c-b6fb-a8ba191c2514","7cee6e28-116f-44fd-8d43-6018a23d04a2","33d6893e-b606-42b3-973e-44752a8ed22e","a2c225a8-c3c0-46cf-a792-cf5c55900084","24a3ea5f-083d-4f96-a7cf-102a021b9b15","c49929fc-4632-4212-b4e2-37610f4ef944","dc966477-d49f-4f5b-a05a-4cc538e59ce5","53d18e77-7493-4bd2-b17f-b9ca6dfbf1d1","969e496d-b620-4213-9e12-4de38754aea8","54610fe1-4c8e-4849-8c3c-db7fb83476ae","9de2c7aa-930e-4cb5-bed8-0bb53c2bd8d5","b7b05973-fbe8-4d0d-a9f1-a1d5d185f949","4088bc70-6726-4826-b33e-2ea39f94296c","012677f4-9ff2-4108-879c-152becafba21","c6f3dad4-52fe-4bca-bbd4-16ce5beb92cc","4e405b25-f6d7-496c-be32-837ee5e853c3","d71b027d-d8b6-4e5a-b9f0-732a705b2ea9","a8b1ea43-8310-49a6-b3ed-22b3492aceef","afa2d31d-f1c1-40f3-a653-6d7918a69400","1ab6d962-9697-415b-bef2-b046a3bd8a2b","20cec2e9-982b-4693-b1c3-5708f3716945","210dcac4-e905-446c-a9ba-77a7a40c0642","991113d2-7039-4d11-b035-fbd960eca482","b3e6347b-7219-4076-be3e-e5f38bc59426","fdcd89fa-4c89-4043-8fbc-4d5c33a03419","343ff14c-a32f-4f67-bba8-7b07006d972d","2b8038f8-9034-41b8-a50c-ae2e2a552399","5989130b-2c95-4b71-b812-024ab29a7c81","418734b1-e132-4a10-b836-fd595fd528a7","e8e7b9f0-e425-4dad-92f2-5a811ec72d23","050dea25-e481-425d-8b13-338fc0427644","33ac476e-e8a1-4355-9f56-ebb6a6c358ce","5d4d9f20-ee53-45dc-a0c8-7d90f77de025","f170bd1c-6269-47a1-999a-8a547ece625f","51c18290-997e-410d-96da-aca0265de933","1038167a-b34e-4ee8-870e-d370734eff04","679174e2-3075-4aae-af9d-6adc11d167d5","cc262520-a1cd-4987-b264-66017f800df5","6b7c31ca-9c2e-4182-98a3-6c986275b342","30a5eb03-adc9-4a0f-a7d6-4112d60e93c9","1a8f0430-16cd-4afe-8c01-d4bf9ba84ec8","f425d63d-e6ca-4d1b-a9ee-3609e55a0aee","c67200e2-4fa1-4082-b0de-b3f8f54454a8","fb1053c4-cd1c-4f96-bc89-f2036cb24397","129084cb-e97e-48ec-afae-34151e6a663d","1a11e61a-46b1-47ea-a22e-0df27a988022","83bbe87b-3b48-4f4b-96df-1b5cf76e9fed","4874509f-c715-44cd-b63c-3982bb3258d4"];
+  var base="https://a0.muscache.com/im/pictures/hosting/Hosting-1668844799653695707/original/";
+  function url(i,w){return base+ids[i]+".jpeg?im_w="+w;}
+  var g=document.getElementById('gallery');
+  for(var i=1;i<ids.length;i++){
+    var im=document.createElement('img');
+    im.src=url(i,720); im.loading='lazy'; im.alt='Villa photo '+(i+1); im.setAttribute('data-idx',i);
+    g.appendChild(im);
+  }
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount'),cur=0;
+  function show(i){cur=(i+ids.length)%ids.length;lbImg.src=url(cur,1440);lbCount.textContent=(cur+1)+' / '+ids.length;}
+  function open(i){show(i);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.tagName==='IMG'&&t.hasAttribute('data-idx')){open(+t.getAttribute('data-idx'));}
+  });
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=function(e){e.stopPropagation();show(cur-1);};
+  document.getElementById('lbNext').onclick=function(e){e.stopPropagation();show(cur+1);};
+  lb.onclick=function(e){if(e.target===lb)close();};
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(cur-1);
+    if(e.key==='ArrowRight')show(cur+1);
+  });
+})();
+</script>
+</body>
+</html>
