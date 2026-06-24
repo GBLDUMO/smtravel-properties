@@ -69,6 +69,19 @@
   .bed h4{font-size:15px;color:var(--sea);margin-bottom:6px}
   .bed p{font-size:14px;color:var(--slate)}
 
+  .price-wrap{max-width:700px;margin-top:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 34px rgba(17,32,43,.07)}
+  .price-head{background:var(--ink);color:#fff;padding:28px 30px}
+  .price-head .pl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .price-head .pv{font-size:40px;font-weight:700;margin-top:4px;line-height:1}
+  .price-head .pv span{font-size:22px;color:#9fb0b8}
+  .price-head .pn{font-size:13px;color:#bdcad1;margin-top:8px}
+  .pay{padding:4px 30px}
+  .pay-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .pay-row:last-child{border-bottom:none}
+  .pay-row b{display:block;font-size:15px;color:var(--ink)}
+  .pay-row small{display:block;font-size:13px;color:var(--slate);margin-top:2px}
+  .pay-row .amt{font-size:18px;font-weight:700;color:var(--sea);white-space:nowrap}
+  .fineprint{font-size:12.5px;color:var(--slate);padding:2px 30px 24px;line-height:1.5}
   .cta{background:var(--ink);color:#fff;text-align:center;padding:60px 0}
   .cta h2{color:#fff}
   .cta p{color:#c4d0d6;max-width:600px;margin:10px auto 26px}
@@ -193,11 +206,30 @@
   </div>
 </section>
 
+<section style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Your Quotation</h2>
+    <div class="sub">Houghton Villa · Camps Bay · 12–16 Feb 2027 · 5 nights · 12 guests</div>
+    <div class="price-wrap">
+      <div class="price-head">
+        <div class="pl">Total Package Price</div>
+        <div class="pv">AED 7,100<span>.00</span></div>
+        <div class="pn">Entire villa for the dates shown · UAE Dirham (AED)</div>
+      </div>
+      <div class="pay">
+        <div class="pay-row"><div><b>To secure the villa</b><small>50% deposit · due on confirmation</small></div><div class="amt">AED 3,550.00</div></div>
+        <div class="pay-row"><div><b>Balance</b><small>50% · due by 1 January 2027</small></div><div class="amt">AED 3,550.00</div></div>
+      </div>
+      <p class="fineprint">Booking is confirmed on receipt of the 50% deposit, with the balance due by 1 January 2027. Rate quoted for the dates and occupancy shown and is subject to availability at the time of confirmation.</p>
+    </div>
+  </div>
+</section>
+
 <div class="cta">
   <div class="wrap">
     <h2>Ready to reserve Houghton Villa?</h2>
-    <p>We handle the full journey — villa, airport transfers, chauffeur service, and on-the-ground coordination for your group. Africa travel, handled properly.</p>
-    <a class="btn" href="#" onclick="return false;">Request Your Tailored Quote</a>
+    <p>Secure your dates with a 50% deposit — we handle the full journey from villa to airport transfers, chauffeur service and on-the-ground coordination. Africa travel, handled properly.</p>
+    <a class="btn" href="#" onclick="return false;">Secure Villa with 50% Deposit</a>
     <div class="contact">Solid Matter Travel &nbsp;·&nbsp; <b>Corporate &amp; Leisure Travel — Africa &amp; UAE</b><br>24/7 on-the-ground support &nbsp;·&nbsp; Fast response &nbsp;·&nbsp; Reliable execution</div>
   </div>
 </div>
